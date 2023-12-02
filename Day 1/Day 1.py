@@ -12,7 +12,18 @@ numbers = {
     "nine": 9    
 }
 
-def main(arr):
+def main1(arr):
+    res = 0
+    for string in arr:
+        l, r = 0, len(string)-1
+        while not string[l].isdigit():
+            l += 1
+        while not string[r].isdigit():
+            r -= 1
+        res += int(string[l]) * 10 + int(string[r])
+    return res
+
+def main2(arr):
     res = 0
     for string in arr:
         digits = []
@@ -32,8 +43,8 @@ def read_file(file_path):
         with open(file_path, 'r') as file:
             content = file.read()
             content = content.split('\n')
-            res = main(content)
-            print("res:", res)
+            print("Part 1:", main1(content))
+            print("Part 2:", main2(content))
     except FileNotFoundError:
         print(f"File '{file_path}' not found.")
     except Exception as e:
