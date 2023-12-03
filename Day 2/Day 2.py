@@ -18,7 +18,6 @@ def main1(arr):
                     break
             if index+1 in invalid_set:
                 break
-    print(invalid_set)
     res = 0
     for i in range(1, len(arr)+1):
         if i not in invalid_set:
