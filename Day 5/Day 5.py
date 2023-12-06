@@ -15,7 +15,6 @@ def main2(seeds, maps):
     start_lengths = list(zip(seeds[::2], seeds[1::2]))
     
     for m in maps:
-        print(start_lengths)
         new_start_lengths = []
         for seed_start, seed_length in start_lengths:
             for output_start, input_start, map_length in m:
