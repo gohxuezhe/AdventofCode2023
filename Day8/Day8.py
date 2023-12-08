@@ -38,7 +38,7 @@ def part2(instructions, nodes_dict):
 
     return math.lcm(*steps_required)
 
-def main():
+if __name__ == "__main__":
     with open('Input.txt', 'r') as file:
         content = file.read()
         instructions, nodes = content.split('\n\n')
@@ -50,6 +50,3 @@ def main():
             nodes_dict[node] = left_right
         print("Part 1:", part1(instructions, nodes_dict))
         print("Part 2:", part2(instructions, nodes_dict))
-
-if __name__ == "__main__":
-    main()

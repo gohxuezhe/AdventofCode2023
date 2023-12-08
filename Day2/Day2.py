@@ -1,12 +1,10 @@
-import sys
-
 bag = {
     "red": 12,
     "green": 13,
     "blue": 14,
 }
 
-def main1(arr):
+def part1(arr):
     invalid_set = set()
     for index, game in enumerate(arr):
         for round in game:
@@ -24,7 +22,7 @@ def main1(arr):
             res += i
     return res
 
-def main2(arr):
+def part2(arr):
     res = 0
     for game in arr:
         bag = {
@@ -42,25 +40,13 @@ def main2(arr):
             
     return res
 
-def read_file(file_path):
-    try:
-        with open(file_path, 'r') as file:
-            content = file.read()
-            content = content.split('\n')
-            new_content = []
-            for line in content:
-                colon_index = line.index(':')
-                new_content.append(line[colon_index+2:].split('; '))
-            print("Part 1:", main1(new_content))
-            print("Part 2:", main2(new_content))
-    except FileNotFoundError:
-        print(f"File '{file_path}' not found.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python script_name.py <file_path>")
-    else:
-        file_path = sys.argv[1]
-        read_file(file_path)
+    with open('Input.txt', 'r') as file:
+        content = file.read()
+        content = content.split('\n')
+        new_content = []
+        for line in content:
+            colon_index = line.index(':')
+            new_content.append(line[colon_index+2:].split('; '))
+        print("Part 1:", part1(new_content))
+        print("Part 2:", part2(new_content))
